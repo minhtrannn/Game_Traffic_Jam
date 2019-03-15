@@ -7,6 +7,6 @@ public class Settings {
     public static int BACKGROUND_HEIGHT = 1498;
     public static int BACKGROUND_SPEED = 10;
     public static int ENEMY_SPEED = 3;
-    public static int PLAYER_WIDTH = 32;
-    public static int PLAYER_HEIGHT = 48;
+    public static int PLAYER_WIDTH = 30;
+    public static int PLAYER_HEIGHT = 60;
 }

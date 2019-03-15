@@ -29,7 +29,7 @@ public class Enemy extends GameObject {
         velocity.setAngle( Math.PI /2);
         velocity.setLength(Settings.ENEMY_SPEED);
         fireCount = 0;
-        collider = new BoxCollider(this,28,28);
+        collider = new BoxCollider(this,65,175);
         hp=1;
         this.damage = 1;
     }

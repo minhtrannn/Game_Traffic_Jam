@@ -38,7 +38,9 @@ public class AnimationRenderer extends Renderer
         ArrayList<BufferedImage> images = new ArrayList<>();
         for(String filename : folder.list())
         {
-            images.add(SpriteUtils.loadImage(directoryPath + "/" + filename));
+            if(filename.endsWith(".png")) {
+                images.add(SpriteUtils.loadImage(directoryPath + "/" + filename));
+            }
         }
         this.images = images;
         this.currentImageIndex = 0;
