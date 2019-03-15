@@ -18,6 +18,6 @@ public class HighScore extends  GameObject
         super.render(g);
         g.setFont(font);
         g.drawString(highscore,510,50);
-        g.drawString(String.valueOf(Enemy.mark),550,90);
+        g.drawString(String.valueOf(Enemy.mark),580,90);
     }
 }

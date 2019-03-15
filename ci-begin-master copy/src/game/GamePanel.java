@@ -13,7 +13,8 @@ public class GamePanel extends JPanel {
     EnemySummoner enemySummoner;
     HighScore highScore;
     public GamePanel() {
-        background = new Background();
+//        background = new Background();
+        new BackgroundManager();
         player = new Player();
         enemySummoner = new EnemySummoner();
         highScore = new HighScore();

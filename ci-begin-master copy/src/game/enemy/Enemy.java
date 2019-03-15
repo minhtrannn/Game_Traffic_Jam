@@ -60,7 +60,6 @@ public class Enemy extends GameObject {
         g.drawString(hp+ "",
                 (int) collider.left(),
                 (int) collider.top());
-        g.drawString(String.valueOf(mark),580,80);
     }
     @Override
     public void reset() {
