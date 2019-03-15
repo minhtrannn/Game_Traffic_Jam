@@ -34,7 +34,7 @@ public class Player extends GameObject {
         super.run();
         playerMove();
         playerLimit();
-        this.checkIntersects();
+//        this.checkIntersects();
     }
 
 

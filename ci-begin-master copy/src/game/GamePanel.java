@@ -11,10 +11,12 @@ public class GamePanel extends JPanel {
     Background background;
     Player player;
     EnemySummoner enemySummoner;
+    HighScore highScore;
     public GamePanel() {
         background = new Background();
         player = new Player();
         enemySummoner = new EnemySummoner();
+        highScore = new HighScore();
     }
 
     public void gameLoop() {
@@ -52,6 +54,6 @@ public class GamePanel extends JPanel {
                 object.run();
             }
         }
-        System.out.println(GameObject.objects.size());
+        //System.out.println(GameObject.objects.size());
     }
 }

@@ -17,6 +17,7 @@ public class Enemy extends GameObject {
     int hp;
     int number;
     public  int damage;
+    public static int mark;
     Random rd = new Random();
     public Enemy() {
         //image = SpriteUtils.loadImage("assets/images/enemies/level0/pink/0.png");
@@ -59,6 +60,7 @@ public class Enemy extends GameObject {
         g.drawString(hp+ "",
                 (int) collider.left(),
                 (int) collider.top());
+        g.drawString(String.valueOf(mark),580,80);
     }
     @Override
     public void reset() {
@@ -75,6 +77,7 @@ public class Enemy extends GameObject {
         {
             player.takeDamage(damage);
             this.deactive();
+            mark++;
         }
     }
 }
