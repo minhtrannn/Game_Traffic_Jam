@@ -14,17 +14,14 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Player extends GameObject {
-    int fireCount;
-    int bulletType;
-    int changeBulletCount;
-    Random random;
     int hp;
     public int damage;
+    public static double positionPlayerx;
+    public static double positionPlayery;
     public Player() {
         collider = new BoxCollider(this,30,60);
         renderer = new PlayerRenderer();
         position.set(200, 500);
-        random = new Random();
         hp = 5;
         this.damage = 1;
     }
@@ -54,7 +51,8 @@ public class Player extends GameObject {
         if(GameWindow.isLeftPress) {
             vX--;
         }
-
+        positionPlayerx = this.position.x;
+        positionPlayery = this.position.y;
         this.velocity.set(vX, vY);
         this.velocity.setLength(1);
     }
@@ -82,14 +80,6 @@ public class Player extends GameObject {
         {
             hp=0;
             this.deactive();
-        }
-    }
-    private void checkIntersects() {
-        Enemy enemy = GameObject.findIntersects(Enemy.class,this.collider);
-        if(enemy != null)
-        {
-            this.deactive();
-            enemy.takeDamage(damage);
         }
     }
 }

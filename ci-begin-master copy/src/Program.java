@@ -18,7 +18,6 @@ public class Program {
         window.setTitle("Game Traffic Jam");
         window.setResizable(false);
         window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
         GamePanel panel = new GamePanel();
         panel.setPreferredSize(
                 new Dimension(Settings.GAME_WIDTH, Settings.GAME_HEIGHT)
