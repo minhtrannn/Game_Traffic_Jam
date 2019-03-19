@@ -22,9 +22,9 @@ public class Enemy extends GameObject {
         this.collider = new BoxCollider(this,20, 20);
         renderer = new AnimationRenderer("assets/images/enemies/level0/pink",10);
         number = 90 + rd.nextInt(200);
-        position.set(number,0);
+        position.set(number,600);
         velocity.set(1,0);
-        velocity.setAngle( Math.PI /2);
+        velocity.setAngle( -Math.PI /2);
         velocity.setLength(Settings.ENEMY_SPEED);
         fireCount = 0;
         collider = new BoxCollider(this,56,96);
@@ -58,9 +58,9 @@ public class Enemy extends GameObject {
         if(Player.hpPlayer > 0) {
             super.reset(); // active = true;
             number = 90 + rd.nextInt(200);
-            position.set(number, 0);
+            position.set(number, 600);
             hp = 1;
-            velocity.setAngle(Math.PI / 2);
+            velocity.setAngle(-Math.PI / 2);
         }
         else
         {

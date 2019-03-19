@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage;
 
 public class Background extends GameObject {
     public Background() {
-        this.renderer = new SingleImageRenderer(SpriteUtils.loadImage("assets/images/background/4.png"));
+        this.renderer = new SingleImageRenderer(SpriteUtils.loadImage("assets/images/background/map-2.png"));
         //this.position.set(0, Settings.GAME_HEIGHT - Settings.BACKGROUND_HEIGHT);
 //        this.velocity.set(0, Settings.BACKGROUND_SPEED);
         this.anchor.set(0,0); // set cho background ve vi tri 0 0
