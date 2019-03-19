@@ -15,6 +15,15 @@ public class GamePanel extends JPanel {
     public GamePanel() {
 //        background = new Background();
         new BackgroundManager();
+//        if(Player.hpPlayer > 0)
+//        {
+//            new BackgroundManager();
+//        }
+//        else
+//        {
+//            Settings.BACKGROUND_SPEED = 0;
+//            Settings.ENEMY_SPEED = 0;
+//        }
         player = new Player();
         enemySummoner = new EnemySummoner();
         highScore = new HighScore();

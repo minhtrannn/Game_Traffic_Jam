@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Player extends GameObject {
-    int hp;
+    public static int hpPlayer;
     public int damage;
     public static double positionPlayerx;
     public static double positionPlayery;
@@ -22,7 +22,7 @@ public class Player extends GameObject {
         collider = new BoxCollider(this,30,60);
         renderer = new PlayerRenderer();
         position.set(200, 500);
-        hp = 5;
+        hpPlayer = 3;
         this.damage = 1;
     }
 
@@ -75,10 +75,10 @@ public class Player extends GameObject {
     }
     public void takeDamage(int damage)
     {
-        hp -= damage;
-        if(hp <= 0)
+        hpPlayer -= damage;
+        if(hpPlayer <= 0)
         {
-            hp=0;
+            hpPlayer=0;
             this.deactive();
         }
     }

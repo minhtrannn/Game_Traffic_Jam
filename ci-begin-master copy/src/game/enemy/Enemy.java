@@ -21,7 +21,7 @@ public class Enemy extends GameObject {
     public Enemy() {
         this.collider = new BoxCollider(this,20, 20);
         renderer = new AnimationRenderer("assets/images/enemies/level0/pink",10);
-        number = rd.nextInt(350);
+        number = 90 + rd.nextInt(200);
         position.set(number,0);
         velocity.set(1,0);
         velocity.setAngle( Math.PI /2);
@@ -55,11 +55,17 @@ public class Enemy extends GameObject {
     }
     @Override
     public void reset() {
-        super.reset(); // active = true;
-        number = rd.nextInt(350);
-        position.set(number,0);
-        hp = 1;
-        velocity.setAngle(Math.PI/2);
+        if(Player.hpPlayer > 0) {
+            super.reset(); // active = true;
+            number = 90 + rd.nextInt(200);
+            position.set(number, 0);
+            hp = 1;
+            velocity.setAngle(Math.PI / 2);
+        }
+        else
+        {
+            Settings.ENEMY_SPEED = 0;
+        }
     }
     private void checkIntersects()
     {
@@ -102,7 +108,7 @@ public class Enemy extends GameObject {
         {
             this.deactive();
             pass = true;
-            number1 = rd.nextInt(3);
+            number1 = rd.nextInt(5);
             System.out.println(number1);
             if(number1 == 0)
             {
@@ -112,9 +118,17 @@ public class Enemy extends GameObject {
             {
                  renderer = new AnimationRenderer("assets/images/enemies/level0/blue",10);
             }
-            else
+            else if(number == 2)
             {
                 renderer = new AnimationRenderer("assets/images/enemies/level0/black",10);
+            }
+            else if(number == 3 )
+            {
+                renderer = new AnimationRenderer("assets/images/enemies/level0/red",10);
+            }
+            else
+            {
+                renderer = new AnimationRenderer("assets/images/enemies/level0/white",10);
             }
         }
 

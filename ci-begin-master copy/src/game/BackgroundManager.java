@@ -1,5 +1,7 @@
 package game;
 
+import game.player.Player;
+
 public class BackgroundManager extends  GameObject
 {
     Background b1;
@@ -17,17 +19,28 @@ public class BackgroundManager extends  GameObject
         setAbove(b2,b1);
         currentDisplay = b1;
         currentHide = b2;
+//        if(Player.hpPlayer == 0 )
+//        {
+//            Settings.BACKGROUND_SPEED = 0;
+//            Settings.ENEMY_SPEED = 0;
+//        }
     }
 
     @Override
     public void run() {
         super.run();
-        if(currentDisplay.position.y > -5)
+        if(Player.hpPlayer > 0) {
+            if (currentDisplay.position.y > -5) {
+                setAbove(currentHide, currentDisplay);
+                Background temp = currentDisplay;
+                currentDisplay = currentHide;
+                currentHide = temp;
+            }
+        }
+        else
         {
-            setAbove(currentHide,currentDisplay);
-            Background temp = currentDisplay;
-            currentDisplay = currentHide;
-            currentHide = temp;
+              b1.velocity.set(0,0);
+              b2.velocity.set(0,0);
         }
     }
     public void setAbove(Background a, Background b)
