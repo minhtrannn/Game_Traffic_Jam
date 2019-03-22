@@ -21,7 +21,7 @@ public class Player extends GameObject {
     public Player() {
         collider = new BoxCollider(this,30,60);
         renderer = new PlayerRenderer();
-        position.set(200, 500);
+        position.set(400, 500);
         hpPlayer = 3;
         this.damage = 1;
     }

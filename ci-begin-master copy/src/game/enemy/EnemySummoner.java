@@ -25,7 +25,6 @@ public class EnemySummoner extends GameObject
         wayCount++;
         if(wayCount > 120) // 2s * 60
         {
-//            Enemy enemy = new Enemy();
             summonCount++;
             if(summonCount > 10)
             {
@@ -38,7 +37,6 @@ public class EnemySummoner extends GameObject
                     enemyCount = 0;
                 }
             }
-            //wayCount = 0;
         }
     }
 

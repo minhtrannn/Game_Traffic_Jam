@@ -1,6 +1,7 @@
 package game;
 
 import game.enemy.Enemy;
+import game.enemy.EnemyDownSummoner;
 import game.enemy.EnemySummoner;
 import game.player.Player;
 
@@ -12,20 +13,13 @@ public class GamePanel extends JPanel {
     Player player;
     EnemySummoner enemySummoner;
     HighScore highScore;
+    EnemyDownSummoner enemyDownSummoner;
     public GamePanel() {
-//        background = new Background();
+        background = new Background();
         new BackgroundManager();
-//        if(Player.hpPlayer > 0)
-//        {
-//            new BackgroundManager();
-//        }
-//        else
-//        {
-//            Settings.BACKGROUND_SPEED = 0;
-//            Settings.ENEMY_SPEED = 0;
-//        }
         player = new Player();
         enemySummoner = new EnemySummoner();
+        enemyDownSummoner = new EnemyDownSummoner();
         highScore = new HighScore();
     }
 

@@ -15,18 +15,17 @@ public class Enemy extends GameObject {
     int number;
     int number1;
     public  int damage;
-    public static int mark;
+
     Random rd = new Random();
     boolean pass;
     public Enemy() {
         this.collider = new BoxCollider(this,20, 20);
         renderer = new AnimationRenderer("assets/images/enemies/level0/pink",10);
-        number = 90 + rd.nextInt(200);
+        number = 90 + rd.nextInt(550);
         position.set(number,600);
         velocity.set(1,0);
         velocity.setAngle( -Math.PI /2);
         velocity.setLength(Settings.ENEMY_SPEED);
-        fireCount = 0;
         collider = new BoxCollider(this,56,96);
         hp=1;
         this.damage = 1;
@@ -57,7 +56,7 @@ public class Enemy extends GameObject {
     public void reset() {
         if(Player.hpPlayer > 0) {
             super.reset(); // active = true;
-            number = 90 + rd.nextInt(200);
+            number = 90 + rd.nextInt(550);
             position.set(number, 600);
             hp = 1;
             velocity.setAngle(-Math.PI / 2);
@@ -78,38 +77,38 @@ public class Enemy extends GameObject {
     }
     private void checkPass()
     {
-        if(this.position.y > Player.positionPlayery && pass == true)
+        if(this.position.y < Player.positionPlayery && pass == true)
         {
             if(Player.positionPlayerx > position.x)
             {
-                if (Player.positionPlayerx - this.position.x <= 65 && this.position.y + 10 >= Player.positionPlayery)
+                if (Player.positionPlayerx - this.position.x <= 65 && this.position.y - 10 <= Player.positionPlayery)
                 {
-                    mark += 30;
+                    EnemyDown.mark += 30;
                 } else if (Player.positionPlayerx - this.position.x <= 110 && Player.positionPlayerx - this.position.x > 65)
                 {
-                    mark += 20;
-                } else mark += 10;
+                    EnemyDown.mark += 20;
+                } else EnemyDown.mark += 10;
             }
-            else if(position.x > Player.positionPlayerx)
+            else if(this.position.x > Player.positionPlayerx)
             {
-                if(this.position.x - Player.positionPlayerx <= 65 && this.position.y + 10 >= Player.positionPlayery) {
-                    mark += 30;
+                if(this.position.x - Player.positionPlayerx <= 65 && this.position.y - 10 <= Player.positionPlayery) {
+                    EnemyDown.mark += 30;
                 }else if(this.position.x - Player.positionPlayerx <=110 && this.position.x - Player.positionPlayerx > 65)
                 {
-                    mark+=20;
-                } else mark+=10;
+                    EnemyDown.mark+=20;
+                } else EnemyDown.mark+=10;
             }
             pass = false;
         }
     }
     private void checkEnd() // di het map thi deactive
     {
-        if(this.position.y > 600)
+        if(this.position.y < 0)
         {
             this.deactive();
             pass = true;
             number1 = rd.nextInt(5);
-            System.out.println(number1);
+            //System.out.println(number1);
             if(number1 == 0)
             {
                 renderer = new AnimationRenderer("assets/images/enemies/level0/pink",10);
