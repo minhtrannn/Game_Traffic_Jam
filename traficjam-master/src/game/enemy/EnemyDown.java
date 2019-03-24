@@ -134,4 +134,10 @@ public class EnemyDown extends GameObject {
         }
 
     }
+    @Override
+    public void deactive() {
+        super.deactive();
+        EnemyExplosion explosion = GameObject.recycle(EnemyExplosion.class);
+        explosion.position.set(this.position);
+    }
 }

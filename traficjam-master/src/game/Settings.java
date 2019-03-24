@@ -9,4 +9,5 @@ public class Settings {
     public static int ENEMY_SPEED = 5;
     public static int PLAYER_WIDTH = 26;
     public static int PLAYER_HEIGHT = 60;
+    public static int ITEM_SPEED_FRAME_LEFT = 0;
 }

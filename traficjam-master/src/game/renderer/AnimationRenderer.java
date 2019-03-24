@@ -1,5 +1,6 @@
 package game.renderer;
 
+import game.FrameCounter;
 import game.GameObject;
 import tklibs.SpriteUtils;
 
@@ -16,22 +17,24 @@ public class AnimationRenderer extends Renderer
     public int changeImageCount;
     public int frameChange;
     public boolean isOnce;
+    FrameCounter renderCounter;
+    public AnimationRenderer (ArrayList<BufferedImage> images)
+    {
+        this(images,6,false);
+    }
 
-    public AnimationRenderer (ArrayList<BufferedImage> images,int frameChange)
+    public AnimationRenderer(ArrayList<BufferedImage> images,int nextImageCount)
+    {
+        this(images,nextImageCount,false);
+    }
+    public AnimationRenderer(ArrayList <BufferedImage> images,int nextImageCount,boolean isOnce)
     {
         this.images = images;
         this.currentImageIndex = 0;
-        this.changeImageCount = 0;
-        this.frameChange = frameChange;
-        this.isOnce = false;
-    }
+        this.renderCounter = new FrameCounter(nextImageCount);
+        this.isOnce = isOnce;
 
-//
-//    public Animation(ArrayList<BufferedImage> images,int nextImageCout , boolean isOnce){
-//        this.images = images;
-//        this.currentImageIndex = 0;
-//        this.renderCouter = new FrameCounter();
-//    }
+    }
 
 
     public AnimationRenderer(String directoryPath, int frameChange)
